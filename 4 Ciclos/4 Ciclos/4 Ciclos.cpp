@@ -47,12 +47,50 @@ int main(array<System::String^>^ args)
     //    Console::WriteLine("El número ingresado es primo");
 
     //}
-    List<String^>^ Lista = gcnew List<String^>();
-    for (int x = 0; x <= 5; x++) {
-        Lista->Add(x.ToString());
+    //List<String^>^ Lista = gcnew List<String^>();
+    //for (int x = 0; x <= 5; x++) {
+    //    Lista->Add(x.ToString());
+    //}
+    //for each (String^ Numero in Lista)
+    //{
+    //    Console::WriteLine(Numero->ToString());
+    //}
+    Console::WriteLine("Ingrese la base");
+    int Base = Convert::ToInt32(Console::ReadLine());
+    Console::WriteLine("Ingrese el Exponente");
+    int Exponente = Convert::ToInt32(Console::ReadLine());
+    ////Potencia con multiplicación
+    //int Potencia = 1;
+    //    for (int i = 0; i <Exponente; i++){
+    //        Potencia *= Base;
+    //       }
+    ////Potencia con sumas;
+    if (Exponente == 0) {
+        Console::WriteLine("1");
     }
-    for each (String^ Numero in Lista)
-    {
-        Console::WriteLine(Numero->ToString());
+    else if (Exponente < 0) {
+        Exponente= Exponente* -1;
+        Double r = 0, n = 1;
+        for (int h = 0; h < Exponente; h++) {
+            r = 0;
+            for (int i = 0; i < Base; i++) {
+                r += n;
+            }
+            n = r; 
+        }
+        Double Potencia=0;
+        Potencia = 1 / n;
+        Console::WriteLine(Potencia.ToString());
+    }
+    else {
+        int r = 0, n = 1;
+        for (int h = 0; h < Exponente; h++) {
+            r = 0;
+            for (int i = 0; i < Base; i++) {
+                r += n;
+            }
+            n = r;
+        }
+        Console::WriteLine(r.ToString());
     }
 }
